@@ -6,14 +6,17 @@ util = require("util")
 
 class Fieldset extends Field
   constructor: (obj) ->
+    @setDefault
+      tag: "fieldset",
+      fields: []
+
+    if obj and obj.fields
+      @setField field for field in obj.fields
+      delete obj.fields
+
     super obj
 
     @_weight = 0
-
-
-  default:
-    tag: "fieldset",
-    fields: []
 
   setInput: (obj) ->
     _input = new Input obj

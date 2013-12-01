@@ -1,9 +1,10 @@
 Field = require("./Field")
 
 class Input extends Field
-
-  default:
-    type: "text"
-    tag: "input"
+  constructor: (obj) ->
+    @setDefault
+      type: "text"
+      tag: "input"
+    super obj
 
 module.exports = Input;

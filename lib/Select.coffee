@@ -3,12 +3,13 @@ util = require('util')
 
 class Select extends Field
   constructor: (obj) ->
-    @_attributes = {} #TODO: Подумать, как от этого избавится
+    @setDefault
+      option: []
 
-    @_attributes.option = []
     @_weight = 0
     if obj and obj.option
-      @appendOption option for option in obj.option
+      @addOption option for option in obj.option
+      delete obj.option
 
     super obj
 
@@ -31,9 +32,11 @@ class Select extends Field
 
 
 class Option extends Field
-  default:
-    value: "",
-    text: ""
+    constructor: (obj) ->
+      @setDefault
+        value: "",
+        text: ""
+      super obj
 
 module.exports = Select
 

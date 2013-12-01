@@ -7,8 +7,8 @@ class Field
 
     @_attributes = {} if !@_attributes
 
-    util._extend @_default, @default if @default
     util._extend @_attributes, @_default
+    util._extend @_attributes, @default
     util._extend @_attributes, obj
 
     @_attributes.fid = "field-#{++fields}"
@@ -41,6 +41,10 @@ class Field
       obj[1]._attributes.weight = _temp
 
     obj
+
+  setDefault: (obj) ->
+    @default = util._extend obj, @default
+
 
   _default:
     name: ""

@@ -2,8 +2,11 @@ Fieldset = require("./Fieldset")
 util = require("util")
 
 class Form extends Fieldset
-  deafult:
-    tag: "form"
+  constructor: (obj) ->
+    @setDefault
+      tag: "form"
+
+    super obj
 
   setFieldset: (obj) ->
     _fieldset = new Fieldset(obj)
