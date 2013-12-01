@@ -1,2 +1,4 @@
-node-form-api
+Form API for Node.js
 =============
+
+is development
